@@ -22,6 +22,7 @@ class MasterViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
+//        let addButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "insertNewObject:")
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
     }
@@ -32,7 +33,9 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
+//        objects.insert(NSDate(), atIndex: objects.count == 0 ? 0 : objects.count - 1)
         objects.insert(NSDate(), atIndex: 0)
+//        let indexPath = NSIndexPath(forRow: objects.count == 0 ? 0 : objects.count - 1, inSection: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -68,7 +71,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
