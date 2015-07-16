@@ -14,7 +14,11 @@ class DetailViewController: UIViewController {
 
 
     var detailItem: AnyObject? {
+        willSet{
+            println("DetailViewController will item set")
+        }
         didSet {
+            println("DetailViewController did item set")
             // Update the view.
             self.configureView()
         }
